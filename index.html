@@ -138,11 +138,14 @@ footer{
 
 <div id="login">
     <div class="login-box">
-        <h1>❤️ Sıla ve Ben ❤️</h1>
+        <h1>❤️ Sıla ve yigit ❤️</h1>
         <p>Bu site sadece ikimiz için hazırlandı.</p>
 
-        <input type="password" id="password" placeholder="Şifreyi gir">
-        <button onclick="login()">Giriş Yap</button>
+        <input type="text" id="phone" placeholder="Telefon numarası">
+
+<input type="password" id="password" placeholder="Şifre">
+
+<button onclick="login()">Giriş Yap</button>
 
         <div id="error"></div>
     </div>
@@ -152,7 +155,7 @@ footer{
 
 <section class="hero">
     <div>
-        <h1>Hoş Geldin Sıla ❤️</h1>
+        <h1>Hoş Geldin aşkım ❤️</h1>
         <p>Bu sayfadaki her şey senin için hazırlandı.</p>
     </div>
 </section>
@@ -189,7 +192,7 @@ footer{
     <br>
 
     <div class="card letter">
-        Sevgili Sıla,<br><br>
+        Sevgilim ,<br><br>
 
         Bu sayfayı hazırlarken tek amacım sana ne kadar değer verdiğimi
         küçük bir sürprizle göstermekti.<br><br>
@@ -197,7 +200,7 @@ footer{
         Seninle geçen her gün benim için çok kıymetli.
         Gülüşün, sesin ve varlığın hayatımı güzelleştiriyor.<br><br>
 
-        İyi ki varsın. ❤️
+        İyi ki varsın ömrüm. ❤️
     </div>
 </section>
 
@@ -221,16 +224,39 @@ footer{
 
 <script>
 
-const SITE_PASSWORD = "sila2026";
+const SITE_PASSWORD = "toprak2104";
 
 function login(){
-    const pass = document.getElementById("password").value;
 
-    if(pass === SITE_PASSWORD){
-        document.getElementById("login").style.display="none";
-        document.getElementById("site").style.display="block";
-    }else{
-        document.getElementById("error").innerText="Şifre hatalı.";
+    const allowedPhones = [
+        "05411805839",
+        "05462283667"
+    ];
+
+    const phone =
+    document.getElementById("phone").value;
+
+    const pass =
+    document.getElementById("password").value;
+
+    if(!allowedPhones.includes(phone)){
+        document.getElementById("error").innerText =
+        "Bu numaranın erişim yetkisi yok.";
+        return;
+    }
+
+    if(pass !== SITE_PASSWORD){
+        document.getElementById("error").innerText =
+        "Şifre hatalı.";
+        return;
+    }
+
+    document.getElementById("login").style.display =
+    "none";
+
+    document.getElementById("site").style.display =
+    "block";
+}
     }
 }
 
