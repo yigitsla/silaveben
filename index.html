@@ -164,22 +164,19 @@ footer{
     <h2>📸 Anılarımız</h2>
     <br>
 
-    <div class="gallery">
-        <div class="card">
-            <img src="foto1.jpg" alt="">
-            <p>İlk fotoğrafımız ❤️</p>
-        </div>
+    <div style="text-align:center;">
 
-        <div class="card">
-            <img src="foto2.jpg" alt="">
-            <p>Unutamadığım günlerden biri ❤️</p>
-        </div>
+    <img
+    id="slideshow"
+    src="foto1.jpg"
+    style="
+    width:80%;
+    max-width:700px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,.2);
+    ">
 
-        <div class="card">
-            <img src="foto3.jpg" alt="">
-            <p>Birlikte geçirdiğimiz güzel an ❤️</p>
-        </div>
-    </div>
+</div>
 </section>
 
 <section class="section">
@@ -316,6 +313,29 @@ function createHeart() {
 }
 
 setInterval(createHeart, 500);
+
+</script><script>
+
+const photos = [
+    "foto1.jpg",
+    "foto2.jpg",
+    "foto3.jpg"
+];
+
+let currentPhoto = 0;
+
+setInterval(() => {
+
+    currentPhoto++;
+
+    if(currentPhoto >= photos.length){
+        currentPhoto = 0;
+    }
+
+    document.getElementById("slideshow").src =
+    photos[currentPhoto];
+
+}, 4000);
 
 </script>
     
