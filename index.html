@@ -131,6 +131,23 @@ footer{
     text-align:center;
     padding:30px;
 }
+.welcome{
+    animation: welcomeAnim 3s ease;
+}
+
+@keyframes welcomeAnim{
+
+    0%{
+        opacity:0;
+        transform:scale(.3);
+    }
+
+    100%{
+        opacity:1;
+        transform:scale(1);
+    }
+
+}    
 </style>
 </head>
 
@@ -138,7 +155,10 @@ footer{
 
 <div id="login">
     <div class="login-box">
-        <h1>❤️ Sıla ve yigit ❤️</h1>
+       <h1 class="welcome">❤️ Sıla ve Yiğit ❤️</h1>
+        <p class="welcome">
+Sen hayatıma gelen en güzel şeysin ❤️
+</p>
         <p>Bu site sadece ikimiz için hazırlandı.</p>
 
         <input type="text" id="phone" placeholder="Telefon numarası">
@@ -157,6 +177,15 @@ footer{
     <div>
         <h1>Hoş Geldin aşkım ❤️</h1>
         <p>Bu sayfadaki her şey senin için hazırlandı.</p>
+        <div id="loveCounter" style="
+margin-top:20px;
+font-size:24px;
+font-weight:bold;
+text-align:center;
+color:#ff4f87;
+">
+❤️ Hesaplanıyor...
+</div>
     </div>
 </section>
 
@@ -351,6 +380,41 @@ setInterval(() => {
 }, 1500);
 
 </script>
-    
+<script>
+
+function updateLoveCounter(){
+
+    const startDate =
+    new Date("2025-08-01T00:00:00");
+
+    const now = new Date();
+
+    const diff = now - startDate;
+
+    const days =
+    Math.floor(diff / (1000 * 60 * 60 * 24));
+
+    const hours =
+    Math.floor((diff % (1000 * 60 * 60 * 24))
+    / (1000 * 60 * 60));
+
+    const minutes =
+    Math.floor((diff % (1000 * 60 * 60))
+    / (1000 * 60));
+
+    const seconds =
+    Math.floor((diff % (1000 * 60))
+    / 1000);
+
+    document.getElementById("loveCounter").innerHTML =
+    `❤️ Birlikte ${days} gündür<br>
+    ${hours} saat ${minutes} dakika ${seconds} saniyedir ❤️`;
+}
+
+setInterval(updateLoveCounter,1000);
+
+updateLoveCounter();
+
+</script>    
 </body>
 </html>
