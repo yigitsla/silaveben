@@ -324,25 +324,6 @@ function showSurprise(){
     document.getElementById("surpriseMessage").style.display="block";
 }
 
-const startDate = new Date("2024-01-01");
-
-function updateCounter(){
-
-    const now = new Date();
-
-    const diff = now - startDate;
-
-    const days = Math.floor(diff / (1000*60*60*24));
-    const hours = Math.floor((diff/(1000*60*60)) % 24);
-    const minutes = Math.floor((diff/(1000*60)) % 60);
-
-    document.getElementById("counter").innerHTML =
-        `${days} gün ${hours} saat ${minutes} dakika ❤️`;
-}
-
-updateCounter();
-setInterval(updateCounter,60000);
-
 </script>
 <script>
 
@@ -477,7 +458,19 @@ function closeSurprise(){
 
 function toggleLetter(){
 
-   
+    const letter =
+    document.getElementById("surpriseMessage");
+
+    if(letter.style.display === "block"){
+
+        letter.style.display = "none";
+
+    }else{
+
+        letter.style.display = "block";
+
+    }
+}
 
 function startConfetti(){
 
