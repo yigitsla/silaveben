@@ -248,13 +248,33 @@ src="foto1.jpg.JPG"
 <section class="section">
     <h2>🎁 Son Sürpriz</h2>
 
-    <button onclick="showSurprise()">
-        Son Mesajı Aç ❤️
-    </button>
+  <button onclick="toggleLetter()">
+💌 Son Mesajı Aç ❤️
+</button>
 
-    <div id="surpriseMessage">
-        Sen hayatımın en güzel tesadüfüsün. ❤️
-    </div>
+  <div id="surpriseMessage" style="
+margin-top:20px;
+padding:20px;
+background:white;
+border-radius:15px;
+font-size:20px;
+">
+
+Sıla,
+
+Belki her gün söylüyorum ama bir kez daha söylemek istiyorum.
+
+Hayatıma kattığın güzellikleri kelimelerle anlatmak zor.
+
+Gülüşün, sesin, bana bakışın...
+Hepsi benim için çok değerli.
+
+İyi ki varsın.
+İyi ki benimlesin.
+
+❤️ Seni çok seviyorum ❤️
+
+</div>
 </section>
 
 <footer>
@@ -452,6 +472,21 @@ function closeSurprise(){
 
     document.getElementById("surpriseBox").style.display =
     "none";
+    function toggleLetter(){
+
+    const letter =
+    document.getElementById("surpriseMessage");
+
+    if(letter.style.display === "block"){
+
+        letter.style.display = "none";
+
+    }else{
+
+        letter.style.display = "block";
+
+    }
+}
 }
 
 function startConfetti(){
