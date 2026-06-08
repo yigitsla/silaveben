@@ -282,6 +282,42 @@ updateCounter();
 setInterval(updateCounter,60000);
 
 </script>
+<script>
 
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    heart.innerHTML = "❤️";
+
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.top = "-20px";
+    heart.style.fontSize = (Math.random() * 20 + 10) + "px";
+    heart.style.pointerEvents = "none";
+    heart.style.zIndex = "9999";
+
+    document.body.appendChild(heart);
+
+    let pos = -20;
+
+    const fall = setInterval(() => {
+
+        pos += 3;
+
+        heart.style.top = pos + "px";
+
+        if (pos > window.innerHeight) {
+            clearInterval(fall);
+            heart.remove();
+        }
+
+    }, 20);
+}
+
+setInterval(createHeart, 500);
+
+</script>
+    
 </body>
 </html>
