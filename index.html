@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sıla ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#fff7f8;
+    color:#333;
+}
+
+#login{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:20px;
+}
+
+.login-box{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 0 20px rgba(0,0,0,.1);
+    max-width:400px;
+    width:100%;
+}
+
+input{
+    width:100%;
+    padding:12px;
+    margin-top:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+}
+
+button{
+    margin-top:15px;
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#ff5c8d;
+    color:white;
+    font-size:16px;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+#error{
+    color:red;
+    margin-top:10px;
+}
+
+#site{
+    display:none;
+}
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+    background:linear-gradient(135deg,#ffe5ec,#fff);
+}
+
+.hero h1{
+    font-size:3rem;
+}
+
+.section{
+    padding:60px 20px;
+    max-width:1000px;
+    margin:auto;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.gallery img{
+    width:100%;
+    border-radius:15px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 0 15px rgba(0,0,0,.08);
+    margin-bottom:20px;
+}
+
+.counter{
+    font-size:2rem;
+    text-align:center;
+    margin-top:20px;
+}
+
+.letter{
+    line-height:1.8;
+    font-size:18px;
+}
+
+#surpriseMessage{
+    display:none;
+    margin-top:20px;
+    font-size:24px;
+    color:#ff3366;
+    text-align:center;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+}
+</style>
+</head>
+
+<body>
+
+<div id="login">
+    <div class="login-box">
+        <h1>❤️ Sıla ve Ben ❤️</h1>
+        <p>Bu site sadece ikimiz için hazırlandı.</p>
+
+        <input type="password" id="password" placeholder="Şifreyi gir">
+        <button onclick="login()">Giriş Yap</button>
+
+        <div id="error"></div>
+    </div>
+</div>
+
+<div id="site">
+
+<section class="hero">
+    <div>
+        <h1>Hoş Geldin Sıla ❤️</h1>
+        <p>Bu sayfadaki her şey senin için hazırlandı.</p>
+    </div>
+</section>
+
+<section class="section">
+    <h2>📸 Anılarımız</h2>
+    <br>
+
+    <div class="gallery">
+        <div class="card">
+            <img src="foto1.jpg" alt="">
+            <p>İlk fotoğrafımız ❤️</p>
+        </div>
+
+        <div class="card">
+            <img src="foto2.jpg" alt="">
+            <p>Unutamadığım günlerden biri ❤️</p>
+        </div>
+
+        <div class="card">
+            <img src="foto3.jpg" alt="">
+            <p>Birlikte geçirdiğimiz güzel an ❤️</p>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <h2>⏳ Birlikte Geçen Süre</h2>
+    <div class="counter" id="counter"></div>
+</section>
+
+<section class="section">
+    <h2>💌 Sana Mektubum</h2>
+    <br>
+
+    <div class="card letter">
+        Sevgili Sıla,<br><br>
+
+        Bu sayfayı hazırlarken tek amacım sana ne kadar değer verdiğimi
+        küçük bir sürprizle göstermekti.<br><br>
+
+        Seninle geçen her gün benim için çok kıymetli.
+        Gülüşün, sesin ve varlığın hayatımı güzelleştiriyor.<br><br>
+
+        İyi ki varsın. ❤️
+    </div>
+</section>
+
+<section class="section">
+    <h2>🎁 Son Sürpriz</h2>
+
+    <button onclick="showSurprise()">
+        Son Mesajı Aç ❤️
+    </button>
+
+    <div id="surpriseMessage">
+        Sen hayatımın en güzel tesadüfüsün. ❤️
+    </div>
+</section>
+
+<footer>
+    ❤️ Sadece Sıla için hazırlandı ❤️
+</footer>
+
+</div>
+
+<script>
+
+const SITE_PASSWORD = "sila2026";
+
+function login(){
+    const pass = document.getElementById("password").value;
+
+    if(pass === SITE_PASSWORD){
+        document.getElementById("login").style.display="none";
+        document.getElementById("site").style.display="block";
+    }else{
+        document.getElementById("error").innerText="Şifre hatalı.";
+    }
+}
+
+function showSurprise(){
+    document.getElementById("surpriseMessage").style.display="block";
+}
+
+const startDate = new Date("2024-01-01");
+
+function updateCounter(){
+
+    const now = new Date();
+
+    const diff = now - startDate;
+
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff/(1000*60*60)) % 24);
+    const minutes = Math.floor((diff/(1000*60)) % 60);
+
+    document.getElementById("counter").innerHTML =
+        `${days} gün ${hours} saat ${minutes} dakika ❤️`;
+}
+
+updateCounter();
+setInterval(updateCounter,60000);
+
+</script>
+
+</body>
+</html>
