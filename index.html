@@ -147,6 +147,9 @@ footer{
         transform:scale(1);
     }
 
+}   
+#slideshow{
+    transition: opacity .7s ease;
 }    
 </style>
 </head>
@@ -361,18 +364,29 @@ const photos = [
 
 let currentPhoto = 0;
 
+const slideshow =
+document.getElementById("slideshow");
+
 setInterval(() => {
 
-    currentPhoto++;
+    slideshow.style.opacity = "0";
 
-    if(currentPhoto >= photos.length){
-        currentPhoto = 0;
-    }
+    setTimeout(() => {
 
-    document.getElementById("slideshow").src =
-    photos[currentPhoto];
+        currentPhoto++;
 
-}, 1500);
+        if(currentPhoto >= photos.length){
+            currentPhoto = 0;
+        }
+
+        slideshow.src =
+        photos[currentPhoto];
+
+        slideshow.style.opacity = "1";
+
+    }, 700);
+
+}, 2500);
 
 </script>
 <script>
