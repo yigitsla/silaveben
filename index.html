@@ -189,6 +189,18 @@ color:#ff4f87;
 ">
 ❤️ Hesaplanıyor...
 </div>
+<button onclick="showSurprise()" style="
+padding:15px 30px;
+font-size:20px;
+border:none;
+border-radius:15px;
+cursor:pointer;
+margin-top:20px;
+background:#ff4f87;
+color:white;
+">
+❤️ Bana Tıkla ❤️
+</button>        
     </div>
 </section>
 
@@ -221,10 +233,15 @@ src="foto1.jpg.JPG"
         Bu sayfayı hazırlarken tek amacım sana ne kadar değer verdiğimi
         küçük bir sürprizle göstermekti.<br><br>
 
-        Seninle geçen her gün benim için çok kıymetli.
+        Seninle geçirdiğim her an  benim için çok kıymetli.
         Gülüşün, sesin ve varlığın hayatımı güzelleştiriyor.<br><br>
+       
+        İyi ki hayatımdasın.
+        İyi ki yollarımız kesişmiş.
+        İyi ki varsın ömrüm.  
 
-        İyi ki varsın ömrüm. ❤️
+        seni çok seviyorum. ❤️
+        yiğit
     </div>
 </section>
 
@@ -423,7 +440,94 @@ function updateLoveCounter(){
 setInterval(updateLoveCounter,1000);
 
 updateLoveCounter();
+function showSurprise(){
 
-</script>    
+    document.getElementById("surpriseBox").style.display =
+    "block";
+
+    startConfetti();
+}
+
+function closeSurprise(){
+
+    document.getElementById("surpriseBox").style.display =
+    "none";
+}
+
+function startConfetti(){
+
+    for(let i=0;i<80;i++){
+
+        const heart =
+        document.createElement("div");
+
+        heart.innerHTML = "❤️";
+
+        heart.style.position = "fixed";
+        heart.style.left =
+        Math.random()*window.innerWidth + "px";
+
+        heart.style.top = "-50px";
+
+        heart.style.fontSize =
+        (Math.random()*25+15)+"px";
+
+        heart.style.zIndex = "100000";
+
+        document.body.appendChild(heart);
+
+        let pos = -50;
+
+        const fall = setInterval(()=>{
+
+            pos += 5;
+
+            heart.style.top = pos + "px";
+
+            if(pos > window.innerHeight){
+
+                clearInterval(fall);
+                heart.remove();
+            }
+
+        },20);
+    }
+}
+</script>   
+<div id="surpriseBox" style="
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+z-index:99999;
+color:white;
+text-align:center;
+padding-top:150px;
+font-size:30px;
+">
+
+<h1>❤️ Sıla ❤️</h1>
+
+<p>
+Hayatıma girdiğin günden beri<br>
+her günüm daha güzel oldu.<br><br>
+
+Seni çok seviyorum çocuğumun annesi hayatımın kadını. ❤️
+</p>
+
+<button onclick="closeSurprise()" style="
+padding:15px 30px;
+font-size:20px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+">
+Kapat
+</button>
+
+</div>
 </body>
 </html>
